@@ -17,6 +17,9 @@ app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
+// 托管static目录下的静态资源，通过/static路径访问
+app.use("/static", express.static(path.join(__dirname, "static")));
+
 // 更新计数
 app.post("/api/count", async (req, res) => {
   const { action } = req.body;
